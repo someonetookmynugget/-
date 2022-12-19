@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFace</title>
+    <link rel="stylesheet" href="{% static 'css/next.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body> 
+    <a href="{% url 'index' %}" class="button">画像アップロードページ</a>
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            {% for content in data %}
+            {% if forloop.last %}
+            <div class="card">
+            <img class="card" src="./media/result/{{name}}.jpg">
+                <div class="card-content">
+                    <h2 class="card-title" id="name" >{{name}}</h2>
+                    <p class="card-body">・・・・・・・・・・・・・・
+                    ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・</p>
+                    <!-- ↓ボタンの色を変える -->
+                    <a href="#" class="button">詳しく</a>
+                </div>
+            </div>  
+            {% endif %}
+            {% endfor %}
+
+            <!-- <img src="../img/mone.jpg" alt="" width="90%" height="50%"> -->
+            <div class="in-box">
+                <div class="percent">
+                <svg>
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70"></circle>
+                </svg>
+                <div class="number">
+                    <h2>{{percent}}<span>%</span></h2>
+                </div>
+            </div>
+                <h2 class="text">Match</h2>
+            </div>
+        </div> 
+    </section>
+    
+    <script>
+        $("img").hover( function() {
+            $(".card-content").fadeIn("slow");
+        },
+        function() {
+            $("card-content").fadeOut();
+        });
+        
+    </script>    
+</body>
+</html>

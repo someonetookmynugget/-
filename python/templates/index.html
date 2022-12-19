@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>画像アップロードのテスト</title>
+    <link rel="stylesheet" href="{% static 'css/top.css' %}" crossorigin="anonymous">
+</head>
+<body>
+
+        <h1 class="bg-primary text-center text-white">画像選択</h1>
+
+        <main class="container">
+
+            <section>
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="color"></div>
+               <div class="box">
+                    <div class="drag-area">
+                        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></fa-cloud-upload-alt></div>
+                        <header>　ファイルを<br>選択してください</header>
+                        <span></span>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.photo }}
+                            <input class="form-control" type="submit" value="送信">
+                        </form>
+                    </div>
+                </div> 
+            </section>
+
+    </main>
+
+</body>
+</html>

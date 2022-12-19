@@ -1,0 +1,34 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myface</title>
+    <link rel="stylesheet" href='{% static "./css/top.css" %}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <form class="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+       <div class="box">
+            <div class="drag-area">
+                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></fa-cloud-upload-alt></div>
+                <header>ファイルをドラッグ＆<br>ドロップしてください</header>
+                <span></span>
+                <button>ブラウザで探す</button>
+                <input type="file" hidden name="file1">
+            </div>
+        </div> 
+    </section>
+    <script src="{% static 'js/script.js' %}"></script>
+    </form>
+
+</body>
+</html>
